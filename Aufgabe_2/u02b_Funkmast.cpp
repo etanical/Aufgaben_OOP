@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "cFunkmast.h"
+//#include "cGeoPos.h"
 
 using namespace std;
 
@@ -13,7 +14,6 @@ int main()
         test[i].set_antenne(1);
         test[i].set_reichweite(2);
         test[i].set_hoehe(3);
-        test[i].set_geoPos(4);
     }
 
     cout << "Funkmast   Anzahl Antennen     Reichweite      Hoehe       GeoPos\n";
