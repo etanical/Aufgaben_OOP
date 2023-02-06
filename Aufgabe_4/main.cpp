@@ -12,6 +12,10 @@ class cSchienenfahrzeug
         {
             return gewicht;
         }
+        cSchienenfahrzeug()
+        {
+            gewicht = 1;
+        }
 };
 
 class cLokomotive: public cSchienenfahrzeug
@@ -19,15 +23,35 @@ class cLokomotive: public cSchienenfahrzeug
     private:
         double triebkraft;
     public:
-        void ankuppeln();
-        void bereitstellen();
+        void ankuppeln()
+        {
+            cout << "ICH ZIEHE EUCH ALLE!" << endl;
+        }
+        double bereitstellen(double treibstoff)
+        {
+            return (((get_gewicht() + treibstoff) * triebkraft) / 1000);
+        }
+        cLokomotive()
+        {
+            triebkraft = 3;
+        }
 };
 
 class cDiesellock: public cLokomotive
 {
     public:
-        void tanken();
-        void bereitstellen();
+        double tanken()
+        {
+            return 2000;
+        }
+        double bereitstellen(double treibstoff)
+        {
+            return treibstoff + tanken();
+        }
+        cDiesellock()
+        {
+            
+        }
 };
 
 class cDampflock: public cLokomotive
@@ -35,13 +59,24 @@ class cDampflock: public cLokomotive
     public:
         void bereitstellen();
         void anheizen();
+        cDampflock()
+        {
+            
+        }
 
 };
 
 class cWagon: public cSchienenfahrzeug
 {
     public: 
-        void ankuppeln();
+        void ankuppeln()
+        {
+            cout << "Ich lass mich ziehen JUHU!" << endl;
+        }
+        cWagon()
+        {
+            
+        }
 };
 
 class cPersonenwagen: public cWagon
@@ -51,6 +86,10 @@ class cPersonenwagen: public cWagon
     public:
         void einsteigen();
         void aussteigen();
+        cPersonenwagen()
+        {
+            fahrgastanzahl = 100;
+        }
 };
 
 class cGueterwagen: public cWagon
@@ -61,6 +100,10 @@ class cGueterwagen: public cWagon
         void zuladen();
         void abladen();
         double get_gewicht();
+        cGueterwagen()
+        {
+            nutzlast = 1000;
+        }
 };
 
 
